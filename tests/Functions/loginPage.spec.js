@@ -6,7 +6,7 @@ import { LoginPage } from '../../Page/Login';
 // --------------------------------------------------
 // INVALID LOGIN
 // --------------------------------------------------
-
+test.describe('Login page functionality', () => {
 test('Invalid Login', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
@@ -85,4 +85,5 @@ test('Empty Password', async ({ page }) => {
 
   // Should remain on login page
   await expect(page).not.toHaveURL(/\/inventory$/);
+});
 });

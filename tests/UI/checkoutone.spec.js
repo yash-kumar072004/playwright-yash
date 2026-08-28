@@ -4,7 +4,7 @@ import { LoginPage } from '../../Page/Login';
 import { ProductsPage } from '../../Page/Products';
 import { CartPage } from '../../Page/Cart';
 import { CheckoutPage } from '../../Page/Checkout';
-
+test.describe('Checkout Step One functionality', () => {
 test('Checkout Step One UI', async ({ page }) => {
 
   const loginPage = new LoginPage(page);
@@ -33,4 +33,5 @@ test('Checkout Step One UI', async ({ page }) => {
   await expect(
     page.getByText('Cancel Continue')
   ).toBeVisible();
+});
 });

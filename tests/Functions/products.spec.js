@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../Page/Login';
 import { ProductsPage } from '../../Page/Products';
-
+test.describe('Products page functionality', () => {
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
 
@@ -61,4 +61,5 @@ test('Open cart from products', async ({ page }) => {
   await productsPage.openCart();
 
   await expect(page).toHaveURL(/cart/);
+});
 });

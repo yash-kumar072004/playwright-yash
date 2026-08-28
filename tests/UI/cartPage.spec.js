@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../Page/Login';
 import { ProductsPage } from '../../Page/Products';
 import { CartPage } from '../../Page/Cart';
-
+test.describe('Cart page functionality', () => {
 test('Cart page UI', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const productsPage = new ProductsPage(page);
@@ -21,4 +21,5 @@ test('Cart page UI', async ({ page }) => {
   await expect(cartPage.cartContents).toBeVisible();
   await expect(cartPage.continueShopping).toBeVisible();
   await expect(cartPage.checkout).toBeVisible();
+});
 });

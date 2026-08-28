@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../Page/Login';
 import { ProductsPage } from '../../Page/Products';
-
+test.describe('Products page functionality', () => {
 test('Products page UI', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const productsPage = new ProductsPage(page);
@@ -16,4 +16,5 @@ test('Products page UI', async ({ page }) => {
   await expect(productsPage.sortDropdown).toBeVisible();
   await expect(productsPage.inventoryContainer).toBeVisible();
   await expect(productsPage.footer).toBeVisible();
+});
 });

@@ -3,7 +3,7 @@ import { LoginPage } from '../../Page/Login';
 import { ProductsPage } from '../../Page/Products';
 import { CartPage } from '../../Page/Cart';
 import { CheckoutPage } from '../../Page/Checkout';
-
+test.describe('Checkout Step Two functionality', () => {
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
   const productsPage = new ProductsPage(page);
@@ -41,4 +41,5 @@ test('Cancel checkout overview', async ({ page }) => {
   await checkoutPage.cancelCheckout();
 
   await expect(page).toHaveURL(/cart/);
+});
 });

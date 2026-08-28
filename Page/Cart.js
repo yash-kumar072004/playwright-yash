@@ -4,6 +4,19 @@ export class CartPage {
 
     this.logo = page.getByText('TTACart', { exact: true });
 
+    // Added for Cart UI tests
+    this.primaryHeader = page.locator(
+      '[data-test="primary-header"]'
+    );
+
+    this.titleRow = page.locator(
+      '[data-test="title-row"]'
+    );
+
+    this.cartList = page.locator(
+      '[data-test="cart-list"]'
+    );
+
     this.cartContents = page.locator(
       '[data-test="cart-contents-container"]'
     );

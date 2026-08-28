@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../Page/Login';
 import { ProductsPage } from '../../Page/Products';
 import { CartPage } from '../../Page/Cart';
-
+test.describe('Cart page functionality', () => {  
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.open();
@@ -47,4 +47,5 @@ test('Checkout from cart', async ({ page }) => {
   await cartPage.checkoutClick();
 
   await expect(page).toHaveURL(/checkout-step-one/);
+});
 });
