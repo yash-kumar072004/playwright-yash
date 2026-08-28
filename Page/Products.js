@@ -32,7 +32,10 @@ export class ProductsPage {
   }
 
   async open() {
-    await this.page.goto(this.url);
+    await this.page.goto(this.url, {
+      waitUntil: 'domcontentloaded',
+      timeout: 30000
+    });
   }
 
   async addTshirtToCart() {
