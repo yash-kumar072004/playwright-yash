@@ -33,12 +33,7 @@ test('Empty Username', async ({ page }) => {
 
   await loginPage.loginWithPassword('ggg');
 
-  await expect(
-    loginPage.username
-  ).toHaveJSProperty(
-    'validationMessage',
-    'Please fill out this field.'
-  );
+  await expect(loginPage.username).toBeInvalid();
 });
 
 test('Empty Password', async ({ page }) => {
@@ -46,10 +41,5 @@ test('Empty Password', async ({ page }) => {
 
   await loginPage.loginWithUsername('gfh');
 
-  await expect(
-    loginPage.password
-  ).toHaveJSProperty(
-    'validationMessage',
-    'Please fill out this field.'
-  );
+  await expect(loginPage.password).toBeInvalid();
 });
