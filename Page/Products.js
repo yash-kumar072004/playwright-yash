@@ -6,7 +6,10 @@ export class ProductsPage {
       'https://app.thetestingacademy.com/playwright/ttacart/inventory';
 
     this.logo = page.getByText('TTACart', { exact: true });
-    this.title = page.getByText('Products', { exact: true });
+
+    this.title = page.getByText('Products', {
+      exact: true
+    });
 
     this.sortDropdown = page.getByRole('combobox', {
       name: 'Sort products'
@@ -32,15 +35,16 @@ export class ProductsPage {
   }
 
   async open() {
-    const response = await this.page.goto(this.url, {
-      waitUntil: 'commit',
-      timeout: 30000
+    // Products should only be opened after login.
+    // Instead of relying on page.goto() to a protected URL,
+    // wait for the inventory page that login already opened.
+
+    await this.inventoryContainer.waitFor({
+      state: 'visible',
+      timeout: 15000
     });
 
-    console.log('Status:', response?.status());
-    console.log('URL:', this.page.url());
-
-    await this.page.waitForLoadState('domcontentloaded');
+    console.log('Products URL:', this.page.url());
   }
 
   async addTshirtToCart() {

@@ -8,6 +8,7 @@ test('Products page UI', async ({ page }) => {
 
   await loginPage.open();
   await loginPage.login();
+
   await productsPage.open();
 
   await expect(productsPage.logo).toBeVisible();
