@@ -32,10 +32,15 @@ export class ProductsPage {
   }
 
   async open() {
-    await this.page.goto(this.url, {
-      waitUntil: 'domcontentloaded',
+    const response = await this.page.goto(this.url, {
+      waitUntil: 'commit',
       timeout: 30000
     });
+
+    console.log('Status:', response?.status());
+    console.log('URL:', this.page.url());
+
+    await this.page.waitForLoadState('domcontentloaded');
   }
 
   async addTshirtToCart() {

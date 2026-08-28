@@ -33,7 +33,10 @@ test('Empty Username', async ({ page }) => {
 
   await loginPage.loginWithPassword('ggg');
 
-  await expect(loginPage.username).toBeInvalid();
+  await expect(loginPage.username).toHaveJSProperty(
+    'validity.valid',
+    false
+  );
 });
 
 test('Empty Password', async ({ page }) => {
@@ -41,5 +44,8 @@ test('Empty Password', async ({ page }) => {
 
   await loginPage.loginWithUsername('gfh');
 
-  await expect(loginPage.password).toBeInvalid();
+  await expect(loginPage.password).toHaveJSProperty(
+    'validity.valid',
+    false
+  );
 });
